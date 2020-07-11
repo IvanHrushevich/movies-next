@@ -1,0 +1,53 @@
+@import './variables.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  font-size: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: $white;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 200;
+}
+
+#__next {
+  height: 100%;
+}
+
+button,
+input {
+  background-color: $semi-transparent-black;
+  outline: none;
+  border: none;
+
+  &:hover {
+    background-color: $gray-dark;
+  }
+
+  &:active,
+  &:focus {
+    background-color: $gray-dark;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: $white;
+}
+
+.container-global {
+  width: 100%;
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 1rem;
+}

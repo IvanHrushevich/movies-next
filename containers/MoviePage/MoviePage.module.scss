@@ -1,0 +1,12 @@
+@import '../../styles/variables.scss';
+
+.sectionHeader {
+  padding: 1rem 5.5rem 0 5.5rem;
+  min-height: 68rem;
+  display: flex;
+  flex-direction: column;
+  background-color: $header-color;
+  background: url('../../assets/header-bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}

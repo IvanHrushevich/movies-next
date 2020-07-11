@@ -1,0 +1,27 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+.container {
+  height: 4.5rem;
+  max-width: 100rem;
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+.input {
+  background-color: $semi-transparent-black;
+  flex-grow: 1;
+  font-size: 2rem;
+  color: $white;
+  padding: 0 1rem;
+  margin-right: 1rem;
+  border-radius: 0.4rem;
+}
+
+.button {
+  @include button;
+
+  width: 200px;
+  background-color: $red;
+  font-size: 1.4rem;
+}
