@@ -5,7 +5,7 @@ import Link from 'next/link';
 import classes from './MovieCard.module.scss';
 
 export const MovieCard = ({ src, title, genre, year, id }) => (
-  <Link href={'/film/' + id}>
+  <Link href="/film/[id]" as={`/film/${id}`}>
     <a className={classes.container}>
       <img className={classes.pic} src={src}></img>
       <div className={classes.info}>
