@@ -5,18 +5,19 @@ import classes from './Content.module.scss';
 import { MovieCard } from '../../components/index';
 
 const Content = ({ movies }) => {
-  const movieCards = movies
-    ? movies.map((movie) => (
-        <MovieCard
-          src={movie.poster_path}
-          title={movie.title}
-          genre={movie.genres.join(' ')}
-          year={parseInt(movie.release_date)}
-          id={movie.id}
-          key={movie.id}
-        />
-      ))
-    : null;
+  const movieCards =
+    movies && movies.length
+      ? movies.map((movie) => (
+          <MovieCard
+            src={movie.poster_path}
+            title={movie.title}
+            genre={movie.genres.join(' ')}
+            year={parseInt(movie.release_date)}
+            id={movie.id}
+            key={movie.id}
+          />
+        ))
+      : null;
 
   return (
     <main className={classes.section}>

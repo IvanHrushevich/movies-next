@@ -1,9 +1,9 @@
 import { Layout } from '../Layout/Layout';
 import { Content, SearchPanel } from '../../containers';
 
-export const SearchPage = () => (
+export const SearchPage = ({ movies }) => (
   <Layout>
     <SearchPanel />
-    <Content />
+    <Content movies={movies} />
   </Layout>
 );

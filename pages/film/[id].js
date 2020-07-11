@@ -27,7 +27,7 @@ Film.getInitialProps = async ({ query, req }) => {
     `${process.env.API_URL}/movies?searchBy=genres&filter=${genres}`
   );
   const fetchedMoviesWithSameGenres = await moviesWithSameGenresResponse.json();
-  const moviesWithSameGenres = await fetchedMoviesWithSameGenres.data;
+  const moviesWithSameGenres = fetchedMoviesWithSameGenres.data;
 
   return { movie, moviesWithSameGenres };
 };
