@@ -2,7 +2,7 @@ import classes from './MoviePage.module.scss';
 import { Logo, MovieInfo } from '../../components/index';
 import Content from '../Content/Content';
 
-const MoviePage = ({ selectedMovie }) => {
+const MoviePage = ({ selectedMovie, movies }) => {
   const movieInfo = selectedMovie ? (
     <MovieInfo
       src={selectedMovie.poster_path}
@@ -21,7 +21,7 @@ const MoviePage = ({ selectedMovie }) => {
         <Logo />
         <div className={`container-global`}>{movieInfo}</div>
       </section>
-      <Content />
+      <Content movies={movies} />
     </>
   );
 };
