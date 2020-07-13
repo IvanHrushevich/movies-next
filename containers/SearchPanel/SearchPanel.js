@@ -1,11 +1,15 @@
 import { useRouter } from 'next/router';
+import { useDispatch } from 'react-redux';
 
 import classes from './SearchPanel.module.scss';
 import SortPanel from '../SortPanel/SortPanel';
 import { Logo, SearchControl, SortControl } from '../../components';
+import { movieActions } from '../../store/actions';
 
 const SearchPanel = () => {
   const router = useRouter();
+  const dispatch = useDispatch();
+
   return (
     <>
       <header className={classes.sectionHeader}>
@@ -15,7 +19,12 @@ const SearchPanel = () => {
           <div className={classes.searchControl}>
             <SearchControl
               onSearchClick={(searchStr) => {
-                router.push(`/search/title/${searchStr}`);
+                dispatch(movieActions.changeSearchStr(searchStr));
+
+                router.push(
+                  '/search/[searchBy]/[searchStr]',
+                  `/search/title/${searchStr}`
+                );
               }}
             />
           </div>
@@ -32,7 +41,7 @@ const SearchPanel = () => {
             }}
             inputName="searchBy"
             onChange={(event) => {
-              // props.changeSearchBy(event.target.value);
+              dispatch(movieActions.changeSearchBy(event.target.value));
             }}
           />
         </div>

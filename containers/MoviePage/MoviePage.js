@@ -1,8 +1,12 @@
+import { useSelector } from 'react-redux';
+
 import classes from './MoviePage.module.scss';
 import { Logo, MovieInfo } from '../../components/index';
 import Content from '../Content/Content';
 
-const MoviePage = ({ selectedMovie, movies }) => {
+const MoviePage = () => {
+  const selectedMovie = useSelector((state) => state.selectedMovie);
+
   const movieInfo = selectedMovie ? (
     <MovieInfo
       src={selectedMovie.poster_path}
@@ -21,7 +25,7 @@ const MoviePage = ({ selectedMovie, movies }) => {
         <Logo />
         <div className={`container-global`}>{movieInfo}</div>
       </section>
-      <Content movies={movies} />
+      <Content />
     </>
   );
 };

@@ -1,20 +1,19 @@
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+
 import { SearchPage } from '../../../components';
-import { API_URL } from '../../../constants';
+import { movieActions } from '../../../store/actions';
 
-export default function SearchMoviesPage({ movies }) {
-  return <SearchPage movies={movies} />;
+export default function SearchMoviesPage() {
+  const dispatch = useDispatch();
+  const {
+    query: { searchBy, searchStr },
+  } = useRouter();
+
+  useEffect(() => {
+    dispatch(movieActions.fetchMovies(searchBy, searchStr));
+  }, [dispatch, searchBy, searchStr]);
+
+  return <SearchPage />;
 }
-
-SearchMoviesPage.getInitialProps = async ({ query, req }) => {
-  if (!req) {
-    return { movies: null };
-  }
-
-  const queries = `?sortBy=release_date&sortOrder=desc&searchBy=${query.searchBy}&search=${query.searchStr}`;
-
-  const response = await fetch(`${API_URL}/movies${queries}`);
-  const fetchedMovies = await response.json();
-  const movies = fetchedMovies.data;
-
-  return { movies };
-};

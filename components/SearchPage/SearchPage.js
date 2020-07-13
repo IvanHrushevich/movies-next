@@ -4,6 +4,6 @@ import { Content, SearchPanel } from '../../containers';
 export const SearchPage = ({ movies }) => (
   <Layout>
     <SearchPanel />
-    <Content movies={movies} />
+    <Content />
   </Layout>
 );

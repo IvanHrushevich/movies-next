@@ -5,8 +5,14 @@ export const changeSearchStr = (searchStr) => ({
   payload: searchStr,
 });
 
-export const fetchMovies = () => ({
+export const fetchMovies = (searchBy, searchStr) => ({
   type: actionTypes.FETCH_MOVIES,
+  payload: searchStr
+    ? {
+        searchBy,
+        searchStr,
+      }
+    : null,
 });
 
 export const fetchSelectedMovie = (id) => ({

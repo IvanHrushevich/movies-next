@@ -1,10 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 
 import classes from './Content.module.scss';
 import { MovieCard } from '../../components/index';
 
-const Content = ({ movies }) => {
+const Content = () => {
+  const movies = useSelector((state) => state.movies);
+
   const movieCards =
     movies && movies.length
       ? movies.map((movie) => (
@@ -24,10 +26,6 @@ const Content = ({ movies }) => {
       <div className={classes.cardsWrapper}>{movieCards}</div>
     </main>
   );
-};
-
-Content.propTypes = {
-  movies: PropTypes.array,
 };
 
 export default Content;

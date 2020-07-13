@@ -1,54 +1,36 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { useDispatch } from 'react-redux';
 
 import { Layout } from '../../components/Layout/Layout';
 import { MoviePage } from '../../containers';
-import { API_URL } from '../../constants';
+import { wrapper } from '../../store/store';
+import { movieActions } from '../../store/actions';
 
-export default function FilmPage({ movie, moviesWithSameGenres }) {
-  const [selectedMovie, setSelectedMovie] = useState(movie);
-  const [movies, setMovies] = useState(moviesWithSameGenres);
-
+function FilmPage() {
   const {
     query: { id },
   } = useRouter();
 
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    async function loadMovies() {
-      const { movie, moviesWithSameGenres } = await fetchMovies(id);
-      setSelectedMovie(movie);
-      setMovies(moviesWithSameGenres);
+    if (id) {
+      dispatch(movieActions.fetchSelectedMovie(id));
     }
-    if (!movie) {
-      loadMovies();
-    }
-  }, [id]);
+  }, [dispatch, id]);
 
   return (
     <Layout>
-      <MoviePage selectedMovie={selectedMovie} movies={movies} />
+      <MoviePage />
     </Layout>
   );
 }
 
-async function fetchMovies(id) {
-  const response = await fetch(`${API_URL}/movies/${id}`);
-  const movie = await response.json();
+// export const getStaticProps = wrapper.getStaticProps(async ({ store }) => {
+//   store.dispatch(movieActions.fetchSelectedMovie(false));
 
-  const genres = movie.genres.join(',');
-  const moviesWithSameGenresResponse = await fetch(
-    `${API_URL}/movies?searchBy=genres&filter=${genres}`
-  );
-  const fetchedMoviesWithSameGenres = await moviesWithSameGenresResponse.json();
-  const moviesWithSameGenres = fetchedMoviesWithSameGenres.data;
+//   await store.sagaTask.toPromise();
+// });
 
-  return { movie, moviesWithSameGenres };
-}
-
-FilmPage.getInitialProps = async ({ query, req }) => {
-  if (!req) {
-    return { movie: null };
-  }
-
-  return await fetchMovies(query.id);
-};
+export default FilmPage;
