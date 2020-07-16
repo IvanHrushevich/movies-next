@@ -24,7 +24,6 @@ const SortPanel = () => {
           inputName="sortBy"
           onChange={(event) => {
             dispatch(movieActions.changeSortBy(event.target.value));
-            dispatch(movieActions.fetchMovies());
           }}
         />
       </div>
