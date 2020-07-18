@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux';
 import Link from 'next/link';
+import { useSelector } from 'react-redux';
 
 import classes from './SearchPanel.module.scss';
 import SortPanel from '../SortPanel/SortPanel';
@@ -10,6 +11,7 @@ import { movieActions } from '../../store/actions';
 const SearchPanel = () => {
   const router = useRouter();
   const dispatch = useDispatch();
+  const searchBy = useSelector((state) => state.searchBy);
 
   return (
     <>
@@ -26,7 +28,7 @@ const SearchPanel = () => {
               onSearchClick={(searchStr) => {
                 router.push(
                   '/search/[searchBy]/[searchStr]',
-                  `/search/title/${searchStr}`
+                  `/search/${searchBy}/${searchStr}`
                 );
               }}
             />

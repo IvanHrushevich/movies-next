@@ -1,6 +1,7 @@
 import * as actionTypes from './actionTypes';
+import { BASE_URL } from '../../constants';
 
-const BASE_URL = 'http://reactjs-cdp.herokuapp.com';
+import { fetchMoviesByQueries } from '../utils';
 
 export const fetchMovies = (searchBy, searchStr) => async (
   dispatch,
@@ -9,16 +10,8 @@ export const fetchMovies = (searchBy, searchStr) => async (
   const state = getState();
   let queries = `?sortBy=${state.sortBy}&sortOrder=desc&searchBy=${searchBy}&search=${searchStr}`;
 
-  try {
-    const response = await fetch(`${BASE_URL}/movies${queries}`);
-
-    const fetchedData = await response.json();
-    const movies = await fetchedData.data;
-
-    dispatch(fetchMoviesSuccess(movies));
-  } catch (error) {
-    console.error('error', error);
-  }
+  const movies = await fetchMoviesByQueries(queries);
+  dispatch(fetchMoviesSuccess(movies));
 };
 
 export const fetchSelectedMovie = (id) => async (dispatch, getState) => {
