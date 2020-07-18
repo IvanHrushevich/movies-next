@@ -14,7 +14,7 @@ export function Layout({ children }) {
           rel="stylesheet"
         />
       </Head>
-      <main>{children}</main>
+      <div className={classes.content}>{children}</div>
       <Footer />
     </div>
   );
