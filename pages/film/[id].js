@@ -27,10 +27,4 @@ function FilmPage() {
   );
 }
 
-// export const getStaticProps = wrapper.getStaticProps(async ({ store }) => {
-//   store.dispatch(movieActions.fetchSelectedMovie(false));
-
-//   await store.sagaTask.toPromise();
-// });
-
 export default FilmPage;
