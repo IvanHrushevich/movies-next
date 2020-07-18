@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux';
+import Link from 'next/link';
 
 import classes from './SearchPanel.module.scss';
 import SortPanel from '../SortPanel/SortPanel';
@@ -13,7 +14,11 @@ const SearchPanel = () => {
   return (
     <>
       <header className={classes.sectionHeader}>
-        <Logo />
+        <Link href="/">
+          <a>
+            <Logo />
+          </a>
+        </Link>
         <div className={`container-global ${classes.searchBlock}`}>
           <p className={classes.title}>FIND YOUR MOVIE</p>
           <div className={classes.searchControl}>

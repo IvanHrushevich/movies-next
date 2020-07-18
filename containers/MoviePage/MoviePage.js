@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+import Link from 'next/link';
 
 import classes from './MoviePage.module.scss';
 import { Logo, MovieInfo } from '../../components/index';
@@ -22,7 +23,11 @@ const MoviePage = () => {
   return (
     <>
       <section className={classes.sectionHeader}>
-        <Logo />
+        <Link href="/">
+          <a>
+            <Logo />
+          </a>
+        </Link>
         <div className={`container-global`}>{movieInfo}</div>
       </section>
       <Content />
