@@ -1,24 +1,25 @@
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
-import { useDispatch } from 'react-redux';
+// import { useEffect } from 'react';
+// import { useRouter } from 'next/router';
+// import { useDispatch } from 'react-redux';
 
 import { Layout } from '../../components/Layout/Layout';
 import { MoviePage } from '../../containers';
-import { wrapper } from '../../store/store';
 import { movieActions } from '../../store/actions';
+import { initializeStore } from '../../store/store';
+import { fetchMovieAndSimilarMoviesById } from '../../store/utils';
 
-function FilmPage() {
-  const {
-    query: { id },
-  } = useRouter();
+export default function FilmPage() {
+  // const {
+  //   query: { id },
+  // } = useRouter();
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (id) {
-      dispatch(movieActions.fetchSelectedMovie(id));
-    }
-  }, [dispatch, id]);
+  // useEffect(() => {
+  //   if (id) {
+  //     dispatch(movieActions.fetchSelectedMovie(id));
+  //   }
+  // }, [dispatch, id]);
 
   return (
     <Layout>
@@ -27,4 +28,18 @@ function FilmPage() {
   );
 }
 
-export default FilmPage;
+export async function getServerSideProps({ query: { id } }) {
+  const reduxStore = initializeStore();
+  const { dispatch } = reduxStore;
+
+  const {
+    selectedMovie,
+    moviesWithSameGenres,
+  } = await fetchMovieAndSimilarMoviesById(id);
+
+  dispatch(
+    movieActions.fetchSelectedMovieSuccess(selectedMovie, moviesWithSameGenres)
+  );
+
+  return { props: { initialReduxState: reduxStore.getState() } };
+}

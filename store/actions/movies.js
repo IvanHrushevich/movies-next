@@ -1,7 +1,6 @@
 import * as actionTypes from './actionTypes';
-import { BASE_URL } from '../../constants';
 
-import { fetchMoviesByQueries } from '../utils';
+import { fetchMoviesByQueries, fetchMovieAndSimilarMoviesById } from '../utils';
 
 export const fetchMovies = (searchBy, searchStr) => async (
   dispatch,
@@ -14,22 +13,13 @@ export const fetchMovies = (searchBy, searchStr) => async (
   dispatch(fetchMoviesSuccess(movies));
 };
 
-export const fetchSelectedMovie = (id) => async (dispatch, getState) => {
-  try {
-    const response = await fetch(`${BASE_URL}/movies/${id}`);
-    const selectedMovie = await response.json();
+export const fetchSelectedMovie = (id) => async (dispatch) => {
+  const {
+    selectedMovie,
+    moviesWithSameGenres,
+  } = await fetchMovieAndSimilarMoviesById(id);
 
-    const genres = selectedMovie.genres.join(',');
-    const moviesWithSameGenresResponse = await fetch(
-      `${BASE_URL}/movies?searchBy=genres&filter=${genres}`
-    );
-    const fetchedMoviesWithSameGenres = await moviesWithSameGenresResponse.json();
-    const moviesWithSameGenres = await fetchedMoviesWithSameGenres.data;
-
-    dispatch(fetchSelectedMovieSuccess(selectedMovie, moviesWithSameGenres));
-  } catch (error) {
-    console.error('error', error);
-  }
+  dispatch(fetchSelectedMovieSuccess(selectedMovie, moviesWithSameGenres));
 };
 
 // action creators

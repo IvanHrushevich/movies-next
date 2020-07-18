@@ -1,6 +1,6 @@
-import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
+// import { useDispatch } from 'react-redux';
+// import { useEffect } from 'react';
+// import { useRouter } from 'next/router';
 
 import { SearchPage } from '../../../components';
 import { movieActions } from '../../../store/actions';
