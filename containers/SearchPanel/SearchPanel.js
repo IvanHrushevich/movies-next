@@ -19,8 +19,6 @@ const SearchPanel = () => {
           <div className={classes.searchControl}>
             <SearchControl
               onSearchClick={(searchStr) => {
-                dispatch(movieActions.changeSearchStr(searchStr));
-
                 router.push(
                   '/search/[searchBy]/[searchStr]',
                   `/search/title/${searchStr}`
