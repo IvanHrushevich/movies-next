@@ -1,7 +1,3 @@
-// import { useEffect } from 'react';
-// import { useRouter } from 'next/router';
-// import { useDispatch } from 'react-redux';
-
 import { Layout } from '../../components/Layout/Layout';
 import { MoviePage } from '../../containers';
 import { movieActions } from '../../store/actions';
@@ -9,18 +5,6 @@ import { initializeStore } from '../../store/store';
 import { fetchMovieAndSimilarMoviesById } from '../../store/utils';
 
 export default function FilmPage() {
-  // const {
-  //   query: { id },
-  // } = useRouter();
-
-  // const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   if (id) {
-  //     dispatch(movieActions.fetchSelectedMovie(id));
-  //   }
-  // }, [dispatch, id]);
-
   return (
     <Layout>
       <MoviePage />
