@@ -1,15 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import classes from './SortControl.module.scss';
 
-export const SortControl = ({
-  title,
-  btnLeft,
-  btnRight,
-  inputName,
-  onChange,
-}) => (
+const SortControl = ({ title, btnLeft, btnRight, inputName, onChange }) => (
   <div className={classes.container}>
     <span className={classes.title}>{title}</span>
 
@@ -41,9 +34,4 @@ export const SortControl = ({
   </div>
 );
 
-SortControl.propTypes = {
-  title: PropTypes.string,
-  btnLeft: PropTypes.object,
-  btnRight: PropTypes.object,
-  inputName: PropTypes.string,
-};
+export default SortControl;

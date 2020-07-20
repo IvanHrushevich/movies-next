@@ -1,4 +1,4 @@
-import { Layout } from '../../components/Layout/Layout';
+import { Layout } from '../../components';
 import { MoviePage } from '../../containers';
 import { movieActions } from '../../store/actions';
 import { initializeStore } from '../../store/store';

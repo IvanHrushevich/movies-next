@@ -1,9 +1,9 @@
 import Head from 'next/head';
 
 import classes from './Layout.module.scss';
-import { Footer } from '../Footer/Footer';
+import Footer from '../Footer/Footer';
 
-export function Layout({ children }) {
+function Layout({ children }) {
   return (
     <div className={classes.root}>
       <Head>
@@ -19,3 +19,5 @@ export function Layout({ children }) {
     </div>
   );
 }
+
+export default Layout;

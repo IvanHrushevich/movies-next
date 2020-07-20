@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import classes from './SearchControl.module.scss';
 
-export const SearchControl = ({ onSearchClick }) => {
+const SearchControl = ({ onSearchClick }) => {
   const [input, setInput] = useState('');
 
   return (
@@ -13,9 +13,15 @@ export const SearchControl = ({ onSearchClick }) => {
         className={classes.input}
         placeholder="Search"
       />
-      <button className={classes.button} onClick={() => onSearchClick(input)}>
+      <button
+        type="button"
+        className={classes.button}
+        onClick={() => onSearchClick(input)}
+      >
         search
       </button>
     </div>
   );
 };
+
+export default SearchControl;
