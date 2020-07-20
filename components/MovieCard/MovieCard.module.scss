@@ -1,0 +1,39 @@
+@import '../../styles/variables.scss';
+
+.container {
+  width: 32rem;
+  height: 53rem;
+  margin: 2rem;
+
+  &:hover .pic {
+    opacity: 0.5;
+  }
+}
+
+.pic {
+  width: 100%;
+  height: 45rem;
+  margin-bottom: 1.8rem;
+}
+
+.info {
+  display: flex;
+  font-display: row;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.genre {
+  font-size: 1.4rem;
+}
+
+.year {
+  height: 2.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid $white;
+  border-radius: 0.4rem;
+}
