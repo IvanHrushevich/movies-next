@@ -1,17 +1,10 @@
-import { FunctionComponent } from 'react';
 import Link from 'next/link';
+import { FunctionComponent } from 'react';
 
+import { Movie } from '../../shared';
 import classes from './MovieCard.module.scss';
 
-type Props = {
-  src: string;
-  title: string;
-  genre: string;
-  year: number;
-  id: string;
-};
-
-const MovieCard: FunctionComponent<Props> = ({
+const MovieCard: FunctionComponent<Movie> = ({
   src,
   title,
   genre,

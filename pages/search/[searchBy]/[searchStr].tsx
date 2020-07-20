@@ -1,17 +1,18 @@
+import { GetServerSideProps } from 'next';
+import { FunctionComponent } from 'react';
+
 import { SearchPage } from '../../../components';
 import { movieActions } from '../../../store/actions';
 import { initializeStore } from '../../../store/store';
 import { fetchMoviesByQueries } from '../../../store/utils';
 
-export default function SearchMoviesPage(props) {
-  return <SearchPage />;
-}
+const SearchMoviesPage: FunctionComponent = () => <SearchPage />;
 
-export async function getServerSideProps({ query }) {
+export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const reduxStore = initializeStore();
   const { dispatch } = reduxStore;
 
-  let queries = `?sortBy=${
+  const queries = `?sortBy=${
     reduxStore.getState().sortBy
   }&sortOrder=desc&searchBy=${query.searchBy}&search=${query.searchStr}`;
 
@@ -19,4 +20,6 @@ export async function getServerSideProps({ query }) {
   dispatch(movieActions.fetchMoviesSuccess(movies));
 
   return { props: { initialReduxState: reduxStore.getState() } };
-}
+};
+
+export default SearchMoviesPage;

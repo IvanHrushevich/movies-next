@@ -1,3 +1,4 @@
+import { FunctionComponent } from 'react';
 import { useSelector } from 'react-redux';
 import Link from 'next/link';
 
@@ -5,7 +6,7 @@ import classes from './MoviePage.module.scss';
 import { Logo, MovieInfo } from '../../components/index';
 import Content from '../Content/Content';
 
-const MoviePage = () => {
+const MoviePage: FunctionComponent = () => {
   const selectedMovie = useSelector((state) => state.selectedMovie);
 
   const movieInfo = selectedMovie ? (
@@ -14,7 +15,7 @@ const MoviePage = () => {
       title={selectedMovie.title}
       vote={selectedMovie.vote_average}
       genre={selectedMovie.genres.join(' ')}
-      year={parseInt(selectedMovie.release_date)}
+      year={parseInt(selectedMovie.release_date, 10)}
       runtime={selectedMovie.runtime}
       overview={selectedMovie.overview}
     />
@@ -24,11 +25,11 @@ const MoviePage = () => {
     <>
       <section className={classes.sectionHeader}>
         <Link href="/">
-          <a>
+          <a href="/#">
             <Logo />
           </a>
         </Link>
-        <div className={`container-global`}>{movieInfo}</div>
+        <div className="containerGlobal">{movieInfo}</div>
       </section>
       <Content />
     </>

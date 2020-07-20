@@ -1,6 +1,8 @@
+import { FunctionComponent } from 'react';
+
 import classes from '../styles/404.module.scss';
 
-export default function NotFound() {
+const NotFound: FunctionComponent = () => {
   return (
     <div className={classes.container}>
       <div className={classes.message}>
@@ -9,4 +11,6 @@ export default function NotFound() {
       </div>
     </div>
   );
-}
+};
+
+export default NotFound;

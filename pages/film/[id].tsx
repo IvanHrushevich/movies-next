@@ -1,18 +1,21 @@
+import { GetServerSideProps } from 'next';
+import { FunctionComponent } from 'react';
+
 import { Layout } from '../../components';
 import { MoviePage } from '../../containers';
 import { movieActions } from '../../store/actions';
 import { initializeStore } from '../../store/store';
 import { fetchMovieAndSimilarMoviesById } from '../../store/utils';
 
-export default function FilmPage() {
-  return (
-    <Layout>
-      <MoviePage />
-    </Layout>
-  );
-}
+const FilmPage: FunctionComponent = () => (
+  <Layout>
+    <MoviePage />
+  </Layout>
+);
 
-export async function getServerSideProps({ query: { id } }) {
+export const getServerSideProps: GetServerSideProps = async ({
+  query: { id },
+}) => {
   const reduxStore = initializeStore();
   const { dispatch } = reduxStore;
 
@@ -26,4 +29,6 @@ export async function getServerSideProps({ query: { id } }) {
   );
 
   return { props: { initialReduxState: reduxStore.getState() } };
-}
+};
+
+export default FilmPage;

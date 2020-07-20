@@ -7,7 +7,7 @@ type Props = {
   title: string;
   vote: string;
   genre: string;
-  year: string;
+  year: number;
   runtime: string;
   overview: string;
 };

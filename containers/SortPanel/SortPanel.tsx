@@ -1,15 +1,16 @@
+import { FunctionComponent } from 'react';
 import { useDispatch } from 'react-redux';
 
 import classes from './SortPanel.module.scss';
 import { SortControl } from '../../components/index';
 import { movieActions } from '../../store/actions';
 
-const SortPanel = () => {
+const SortPanel: FunctionComponent = () => {
   const dispatch = useDispatch();
 
   return (
     <section className={classes.section}>
-      <div className={`container-global ${classes.panelContainer}`}>
+      <div className={`containerGlobal ${classes.panelContainer}`}>
         <SortControl
           title="sort by"
           btnLeft={{

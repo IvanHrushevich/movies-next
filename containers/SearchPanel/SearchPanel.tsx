@@ -1,14 +1,14 @@
+import { FunctionComponent } from 'react';
 import { useRouter } from 'next/router';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Link from 'next/link';
-import { useSelector } from 'react-redux';
 
 import classes from './SearchPanel.module.scss';
 import SortPanel from '../SortPanel/SortPanel';
 import { Logo, SearchControl, SortControl } from '../../components';
 import { movieActions } from '../../store/actions';
 
-const SearchPanel = () => {
+const SearchPanel: FunctionComponent = () => {
   const router = useRouter();
   const dispatch = useDispatch();
   const searchBy = useSelector((state) => state.searchBy);
@@ -17,11 +17,11 @@ const SearchPanel = () => {
     <>
       <header className={classes.sectionHeader}>
         <Link href="/">
-          <a>
+          <a href="/#">
             <Logo />
           </a>
         </Link>
-        <div className={`container-global ${classes.searchBlock}`}>
+        <div className={`containerGlobal ${classes.searchBlock}`}>
           <p className={classes.title}>FIND YOUR MOVIE</p>
           <div className={classes.searchControl}>
             <SearchControl

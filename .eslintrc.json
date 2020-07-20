@@ -30,7 +30,8 @@
     ],
     "react/prop-types": "off",
     "prettier/prettier": ["error", {}, { "usePrettierrc": true }],
-    "import/extensions": "off"
+    "import/extensions": "off",
+    "react/jsx-props-no-spreading": "off"
   },
   "settings": {
     "import/resolver": {

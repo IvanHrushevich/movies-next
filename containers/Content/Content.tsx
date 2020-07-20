@@ -1,10 +1,10 @@
-import React from 'react';
+import { FunctionComponent } from 'react';
 import { useSelector } from 'react-redux';
 
 import classes from './Content.module.scss';
 import { MovieCard } from '../../components/index';
 
-const Content = () => {
+const Content: FunctionComponent = () => {
   const movies = useSelector((state) => state.movies);
 
   const movieCards =
@@ -14,7 +14,7 @@ const Content = () => {
             src={movie.poster_path}
             title={movie.title}
             genre={movie.genres.join(' ')}
-            year={parseInt(movie.release_date)}
+            year={parseInt(movie.release_date, 10)}
             id={movie.id}
             key={movie.id}
           />
