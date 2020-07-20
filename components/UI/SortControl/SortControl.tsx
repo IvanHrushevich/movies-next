@@ -1,8 +1,22 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 
 import classes from './SortControl.module.scss';
 
-const SortControl = ({ title, btnLeft, btnRight, inputName, onChange }) => (
+type Props = {
+  title: string;
+  btnLeft: any;
+  btnRight: any;
+  inputName: string;
+  onChange: any;
+};
+
+const SortControl: FunctionComponent<Props> = ({
+  title,
+  btnLeft,
+  btnRight,
+  inputName,
+  onChange,
+}) => (
   <div className={classes.container}>
     <span className={classes.title}>{title}</span>
 

@@ -1,9 +1,18 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import { FunctionComponent } from 'react';
 
 import classes from './MovieInfo.module.scss';
 
-export const MovieInfo = ({
+type Props = {
+  src: string;
+  title: string;
+  vote: string;
+  genre: string;
+  year: string;
+  runtime: string;
+  overview: string;
+};
+
+const MovieInfo: FunctionComponent<Props> = ({
   src,
   title,
   vote,
@@ -13,7 +22,7 @@ export const MovieInfo = ({
   overview,
 }) => (
   <section className={classes.container}>
-    <img className={classes.pic} src={src}></img>
+    <img alt={src} className={classes.pic} src={src} />
     <div className={classes.info}>
       <div>
         <div className={classes.titleBlock}>
@@ -39,12 +48,4 @@ export const MovieInfo = ({
   </section>
 );
 
-MovieInfo.propTypes = {
-  src: PropTypes.string,
-  title: PropTypes.string,
-  vote: PropTypes.number,
-  genre: PropTypes.string,
-  year: PropTypes.number,
-  runtime: PropTypes.number,
-  overview: PropTypes.string,
-};
+export default MovieInfo;

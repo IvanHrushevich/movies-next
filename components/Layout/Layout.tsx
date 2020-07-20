@@ -1,9 +1,10 @@
+import { FunctionComponent } from 'react';
 import Head from 'next/head';
 
 import classes from './Layout.module.scss';
 import Footer from '../Footer/Footer';
 
-function Layout({ children }) {
+const Layout: FunctionComponent = ({ children }) => {
   return (
     <div className={classes.root}>
       <Head>
@@ -18,6 +19,6 @@ function Layout({ children }) {
       <Footer />
     </div>
   );
-}
+};
 
 export default Layout;

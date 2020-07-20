@@ -1,13 +1,26 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import { FunctionComponent } from 'react';
 import Link from 'next/link';
 
 import classes from './MovieCard.module.scss';
 
-export const MovieCard = ({ src, title, genre, year, id }) => (
+type Props = {
+  src: string;
+  title: string;
+  genre: string;
+  year: number;
+  id: string;
+};
+
+const MovieCard: FunctionComponent<Props> = ({
+  src,
+  title,
+  genre,
+  year,
+  id,
+}) => (
   <Link href="/film/[id]" as={`/film/${id}`}>
-    <a className={classes.container}>
-      <img className={classes.pic} src={src}></img>
+    <a href="/#" className={classes.container}>
+      <img alt={title} className={classes.pic} src={src} />
       <div className={classes.info}>
         <div>
           <p className={classes.title}>{title}</p>
@@ -19,10 +32,4 @@ export const MovieCard = ({ src, title, genre, year, id }) => (
   </Link>
 );
 
-MovieCard.propTypes = {
-  src: PropTypes.string,
-  title: PropTypes.string,
-  genre: PropTypes.string,
-  year: PropTypes.number,
-  id: PropTypes.number,
-};
+export default MovieCard;
