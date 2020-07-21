@@ -8,10 +8,10 @@ const initialState: State = {
   selectedMovie: null,
 };
 
-const reducer: (state: State, action: any) => State = (
-  state = initialState,
-  action
-) => {
+const reducer: (
+  state: State,
+  action: { type: string; payload?: any }
+) => State = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.FETCH_MOVIES_SUCCESS:
       return {

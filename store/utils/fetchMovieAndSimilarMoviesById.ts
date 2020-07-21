@@ -1,6 +1,9 @@
 import { BASE_URL } from '../../constants';
+import { Movie } from '../../shared';
 
-export async function fetchMovieAndSimilarMoviesById(id) {
+async function fetchMovieAndSimilarMoviesById(
+  id: string
+): Promise<{ selectedMovie: Movie; moviesWithSameGenres: Array<Movie> }> {
   try {
     const response = await fetch(`${BASE_URL}/movies/${id}`);
     const selectedMovie = await response.json();
@@ -17,6 +20,11 @@ export async function fetchMovieAndSimilarMoviesById(id) {
       moviesWithSameGenres,
     };
   } catch (error) {
-    console.error('error', error);
+    return {
+      selectedMovie: null,
+      moviesWithSameGenres: [],
+    };
   }
 }
+
+export default fetchMovieAndSimilarMoviesById;

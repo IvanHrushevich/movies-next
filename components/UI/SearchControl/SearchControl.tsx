@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import { useState, FunctionComponent } from 'react';
 
 import classes from './SearchControl.module.scss';
 
-const SearchControl = ({ onSearchClick }) => {
+const SearchControl: FunctionComponent<{
+  onSearchClick: (input: string) => void;
+}> = ({ onSearchClick }) => {
   const [input, setInput] = useState('');
 
   return (

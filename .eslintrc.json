@@ -30,8 +30,10 @@
     ],
     "react/prop-types": "off",
     "prettier/prettier": ["error", {}, { "usePrettierrc": true }],
+    "react/jsx-indent": "off",
     "import/extensions": "off",
-    "react/jsx-props-no-spreading": "off"
+    "react/jsx-props-no-spreading": "off",
+    "@typescript-eslint/no-explicit-any": "off"
   },
   "settings": {
     "import/resolver": {

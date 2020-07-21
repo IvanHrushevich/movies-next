@@ -1,12 +1,15 @@
 import { BASE_URL } from '../../constants';
+import { Movie } from '../../shared';
 
-export async function fetchMoviesByQueries(queries) {
+async function fetchMoviesByQueries(queries: string): Promise<Array<Movie>> {
   try {
     const response = await fetch(`${BASE_URL}/movies${queries}`);
     const fetchedData = await response.json();
 
     return fetchedData.data;
   } catch (error) {
-    console.error('error', error);
+    return [];
   }
 }
+
+export default fetchMoviesByQueries;

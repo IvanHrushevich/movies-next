@@ -7,7 +7,7 @@ type Props = {
   btnLeft: any;
   btnRight: any;
   inputName: string;
-  onChange: any;
+  onChange: () => void;
 };
 
 const SortControl: FunctionComponent<Props> = ({
