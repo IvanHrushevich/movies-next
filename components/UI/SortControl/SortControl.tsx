@@ -1,13 +1,14 @@
-import React, { FunctionComponent } from 'react';
+import { FunctionComponent } from 'react';
 
+import { SortControlButton } from '../../../shared';
 import classes from './SortControl.module.scss';
 
 type Props = {
   title: string;
-  btnLeft: any;
-  btnRight: any;
+  btnLeft: SortControlButton;
+  btnRight: SortControlButton;
   inputName: string;
-  onChange: () => void;
+  onChange: (event: any) => void;
 };
 
 const SortControl: FunctionComponent<Props> = ({
