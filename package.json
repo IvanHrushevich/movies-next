@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint . --ext .ts --ext .tsx"
+    "lint": "eslint . --ext .ts --ext .tsx",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "next": "9.4.4",
@@ -21,10 +23,20 @@
     "sass": "^1.26.10"
   },
   "devDependencies": {
+    "@babel/core": "^7.10.5",
+    "@storybook/addon-actions": "^5.3.19",
+    "@storybook/addon-links": "^5.3.19",
+    "@storybook/addons": "^5.3.19",
+    "@storybook/preset-scss": "^1.0.2",
+    "@storybook/react": "^5.3.19",
     "@types/node": "^14.0.23",
     "@types/react": "^16.9.43",
     "@typescript-eslint/eslint-plugin": "^3.6.1",
     "@typescript-eslint/parser": "^3.6.1",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-react-require": "^3.1.3",
+    "babel-preset-react-app": "^9.1.2",
+    "css-loader": "^3.6.0",
     "eslint": "^7.5.0",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-config-prettier": "^6.11.0",
@@ -34,6 +46,8 @@
     "eslint-plugin-react": "^7.20.3",
     "eslint-plugin-react-hooks": "^4.0.8",
     "prettier": "^2.0.5",
+    "sass-loader": "^9.0.2",
+    "style-loader": "^1.2.1",
     "typescript": "^3.9.7"
   }
 }
