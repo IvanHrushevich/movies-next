@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+import { action } from '@storybook/addon-actions';
 
 import SearchControl from '../components/UI/SearchControl/SearchControl';
 
@@ -8,5 +9,5 @@ export default {
 };
 
 export const basic: FunctionComponent = () => (
-  <SearchControl onSearchClick={() => {}} />
+  <SearchControl onSearchClick={action('Search string: ')} />
 );
