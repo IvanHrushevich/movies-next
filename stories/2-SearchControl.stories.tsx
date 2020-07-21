@@ -1,3 +1,5 @@
+import React, { FunctionComponent } from 'react';
+
 import SearchControl from '../components/UI/SearchControl/SearchControl';
 
 export default {
@@ -5,6 +7,6 @@ export default {
   component: SearchControl,
 };
 
-export const withText = () => <SearchControl onSearchClick={() => {}} />;
-
-export const withEmoji = () => <button>Click me please</button>;
+export const basic: FunctionComponent = () => (
+  <SearchControl onSearchClick={() => {}} />
+);

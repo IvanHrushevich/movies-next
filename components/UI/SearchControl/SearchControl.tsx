@@ -1,4 +1,4 @@
-import { useState, FunctionComponent } from 'react';
+import React, { useState, FunctionComponent } from 'react';
 
 import classes from './SearchControl.module.scss';
 
