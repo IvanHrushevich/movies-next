@@ -45,7 +45,7 @@ const SearchControl: FunctionComponent<{
       />
       <button
         type="button"
-        className={`${classes.button} button-general`}
+        className={classes.button}
         onClick={() => onSearchClick(input)}
       >
         search
