@@ -1,15 +1,17 @@
 import { FunctionComponent } from 'react';
 import { useSelector } from 'react-redux';
+import { List } from 'immutable';
 
 import classes from './Content.module.scss';
 import { MovieCard } from '../../components/index';
 
 const Content: FunctionComponent = () => {
-  const movies = useSelector((state) => state.movies);
+  const movies: Array<any> = useSelector((state) => state.movies);
+  const moviesList: List<any> = List(movies);
 
   const movieCards =
-    movies && movies.length
-      ? movies.map((movie) => (
+    moviesList && !moviesList.isEmpty()
+      ? moviesList.map((movie) => (
           <MovieCard
             src={movie.poster_path}
             title={movie.title}

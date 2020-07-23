@@ -17,7 +17,7 @@ const SearchPanel: FunctionComponent = () => {
     <>
       <header className={classes.sectionHeader}>
         <Link href="/">
-          <a href="/#">
+          <a>
             <Logo />
           </a>
         </Link>

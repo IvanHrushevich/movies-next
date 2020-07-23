@@ -18,6 +18,7 @@ const useStyles: any = createUseStyles({
 
   pic: {
     width: '100%',
+    minHeight: '45rem',
     height: '45rem',
     marginBottom: '1.8rem',
   },
@@ -56,7 +57,7 @@ const MovieCard: FunctionComponent<Movie> = ({
 
   return (
     <Link href="/film/[id]" as={`/film/${id}`}>
-      <a href="/#" className={classes.container}>
+      <a className={classes.container}>
         <img alt={title} className={classes.pic} src={src} />
         <div className={classes.info}>
           <div>

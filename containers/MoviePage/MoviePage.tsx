@@ -25,7 +25,7 @@ const MoviePage: FunctionComponent = () => {
     <>
       <section className={classes.sectionHeader}>
         <Link href="/">
-          <a href="/#">
+          <a>
             <Logo />
           </a>
         </Link>

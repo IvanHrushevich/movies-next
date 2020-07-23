@@ -1,8 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { createUseStyles } from 'react-jss';
 
-import classes from './Logo.module.scss';
-
 const useStyles: any = createUseStyles({
   container: {
     fontSize: '2rem',
